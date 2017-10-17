@@ -74,10 +74,12 @@
                 "type" : "object",
                 "properties" : {
                   "firstName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "example" : "Ben"
                   },
                   "lastName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "example" : "Tsou"
                   }
                 }
               }
