@@ -1,0 +1,115 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "version" : "1.1.0",
+    "title" : "Maynan",
+    "description" : "The Maynan API"
+  },
+  "paths" : {
+    "/r1/auth" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "authenticate a user",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "good@example.com"
+                  },
+                  "password" : {
+                    "type" : "string",
+                    "example" : "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "authenticated",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "id" : {
+                      "type" : "string",
+                      "example" : "1d2b1808-90e1-41df-ad9e-dd6a5c2b8c34"
+                    },
+                    "email" : {
+                      "type" : "string",
+                      "example" : "good@example.com"
+                    },
+                    "token" : {
+                      "type" : "string",
+                      "example" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpZCI6IjFkMmIxODA4LTkwZTEtNDFkZi1hZDllLWRkNmE1YzJiOGMzNCIsImV4cCI6MTUwODY5ODkzNiwiaWF0IjoxNTA4MDk0MTM2LCJlbWFpbCI6ImJlbkBiZW50c291LmNvbSJ9.b8cYWkc3QcMMyjvlxncfXSdjcCg2uj1Ub9CytOVZQlyPtFvvmz0na-W73ghcJglMUO94dTyVaN7kScLirZGidDsbF3150lv6Pp0duaQY8NRMhbRPujghcnB9huyHSPAGIQs32s9BhwuvF7vAiqVApTBRXWak4LLh6O4ks-KNjoAwGmekkc3zkTZg5rBoZZOokuIRGsW1uDifbp5YHNrXaVGfJYczluc2hLftfA_3wDWDnDLQQKIQc_qkM8MjCfOJTgr93iG_0Pcbi1vnT8-4M1sJy4__ypZyuzLpuJl2intLM7x0UV8y5eggwlsOazQo9JETrOOnNxQSFBzgztiasg"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad request"
+          },
+          "500" : {
+            "description" : "server error"
+          }
+        }
+      }
+    },
+    "/r1/user" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "create a user",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "firstName" : {
+                    "type" : "string"
+                  },
+                  "lastName" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "user created"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "retrieve user information",
+        "parameters" : [ {
+          "in" : "header",
+          "name" : "authroization",
+          "description" : "user's JWT token",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "user information"
+          }
+        }
+      }
+    }
+  }
+}
