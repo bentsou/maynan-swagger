@@ -162,6 +162,72 @@
           }
         }
       }
+    },
+    "/r1/user/{id}/profile" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user's profile",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}/socialMedia" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user's social media",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}/hobby" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user's hobbies",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}/preferredSize" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user's preferred sizes",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}/preferredFit" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user's preferred fits",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
+    },
+    "/r1/user/{id}/preferredStyle" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "updates a user's preferred styles",
+        "responses" : {
+          "200" : {
+            "description" : "update successful"
+          }
+        }
+      }
     }
   },
   "components" : {
