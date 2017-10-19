@@ -159,6 +159,23 @@
             "enum" : [ "<12", "13-17", ">80" ]
           },
           "gender" : {
+            "type" : "string",
+            "enum" : [ "male", "female" ]
+          },
+          "preferredGender" : {
+            "type" : "string",
+            "enum" : [ "male", "female", "both" ]
+          },
+          "height" : {
+            "type" : "integer"
+          },
+          "heightUnit" : {
+            "type" : "string"
+          },
+          "weight" : {
+            "type" : "integer"
+          },
+          "weightUnit" : {
             "type" : "string"
           },
           "email" : {
