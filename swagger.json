@@ -132,7 +132,7 @@
                     },
                     "hobby" : {
                       "type" : "object",
-                      "$ref" : "#/components/schema/hobby"
+                      "$ref" : "#/components/schemas/hobby"
                     }
                   }
                 }
