@@ -98,6 +98,14 @@
         "tags" : [ "user" ],
         "summary" : "retrieve user information",
         "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "user id",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        }, {
           "in" : "header",
           "name" : "authroization",
           "description" : "user's JWT token",
@@ -108,8 +116,88 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "user information"
+            "description" : "user information",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "profile" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schemas/profile"
+                    },
+                    "socialMedia" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schemas/socialMedia"
+                    },
+                    "hobby" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schema/hobby"
+                    }
+                  }
+                }
+              }
+            }
           }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "profile" : {
+        "type" : "object",
+        "properties" : {
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "ageGroup" : {
+            "type" : "string",
+            "enum" : [ "<12", "13-17", ">80" ]
+          },
+          "gender" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string",
+            "format" : "email"
+          },
+          "zip" : {
+            "type" : "string"
+          },
+          "lifestyle" : {
+            "type" : "string",
+            "enum" : [ "relaxed" ]
+          },
+          "occupation" : {
+            "type" : "string"
+          }
+        }
+      },
+      "socialMedia" : {
+        "type" : "object",
+        "properties" : {
+          "facebook" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "instagram" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "linkedIn" : {
+            "type" : "string",
+            "format" : "uri"
+          }
+        }
+      },
+      "hobby" : {
+        "type" : "array",
+        "items" : {
+          "type" : "string"
         }
       }
     }
