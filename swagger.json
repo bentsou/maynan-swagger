@@ -133,11 +133,32 @@
                     "hobby" : {
                       "type" : "object",
                       "$ref" : "#/components/schemas/hobby"
+                    },
+                    "preferredSize" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schemas/preferredSize"
+                    },
+                    "preferredFit" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schemas/preferredFit"
+                    },
+                    "preferredStyle" : {
+                      "type" : "object",
+                      "$ref" : "#/components/schemas/preferredStyle"
                     }
                   }
                 }
               }
             }
+          },
+          "401" : {
+            "description" : "unauthorized"
+          },
+          "400" : {
+            "description" : "invalid request"
+          },
+          "500" : {
+            "description" : "server error"
           }
         }
       }
@@ -215,6 +236,163 @@
         "type" : "array",
         "items" : {
           "type" : "string"
+        }
+      },
+      "preferredSize" : {
+        "type" : "object",
+        "properties" : {
+          "female" : {
+            "type" : "object",
+            "properties" : {
+              "dressNumerical" : {
+                "type" : "number",
+                "format" : "float"
+              },
+              "dressGeneric" : {
+                "type" : "string"
+              },
+              "shirtNumerical" : {
+                "type" : "number",
+                "format" : "float"
+              },
+              "shirtGeneric" : {
+                "type" : "string"
+              },
+              "chestSize" : {
+                "type" : "string"
+              },
+              "cupSize" : {
+                "type" : "string"
+              },
+              "shoeWidth" : {
+                "type" : "string"
+              },
+              "shoeNumerical" : {
+                "type" : "number",
+                "format" : "float"
+              },
+              "skirt" : {
+                "type" : "string"
+              },
+              "pants" : {
+                "type" : "number",
+                "format" : "float"
+              },
+              "jeanWaist" : {
+                "type" : "number",
+                "format" : "float"
+              },
+              "maternity" : {
+                "type" : "boolean"
+              }
+            }
+          },
+          "male" : {
+            "type" : "object",
+            "properties" : {
+              "waist" : {
+                "type" : "number"
+              },
+              "length" : {
+                "type" : "number"
+              },
+              "shirt" : {
+                "type" : "string"
+              },
+              "shoeNumerical" : {
+                "type" : "number",
+                "format" : "float"
+              }
+            }
+          }
+        }
+      },
+      "preferredFit" : {
+        "type" : "object",
+        "properties" : {
+          "female" : {
+            "type" : "object",
+            "properties" : {
+              "flauntArm" : {
+                "type" : "boolean"
+              },
+              "flauntBack" : {
+                "type" : "boolean"
+              },
+              "flauntCleavage" : {
+                "type" : "string",
+                "enum" : [ "sometimes" ]
+              },
+              "flauntLeg" : {
+                "type" : "boolean"
+              },
+              "flauntMedsection" : {
+                "type" : "boolean"
+              },
+              "flauntRear" : {
+                "type" : "boolean"
+              },
+              "flauntShoulder" : {
+                "type" : "boolean"
+              },
+              "jeansLength" : {
+                "type" : "string",
+                "enum" : [ "ankle" ]
+              },
+              "jeansRise" : {
+                "type" : "string",
+                "enum" : [ "high" ]
+              },
+              "jeansStyle" : {
+                "type" : "string",
+                "enum" : [ "skinny" ]
+              },
+              "lowerBody" : {
+                "type" : "string",
+                "enum" : [ "fitted" ]
+              },
+              "upperBody" : {
+                "type" : "string",
+                "enum" : [ "tight" ]
+              }
+            }
+          },
+          "male" : {
+            "type" : "object",
+            "properties" : {
+              "buttonupShirt" : {
+                "type" : "string",
+                "enum" : [ "regular" ]
+              },
+              "casualShirt" : {
+                "type" : "string",
+                "enum" : [ "slim" ]
+              },
+              "jeans" : {
+                "type" : "string",
+                "enum" : [ "slim" ]
+              },
+              "pants" : {
+                "type" : "string",
+                "enum" : [ "straight" ]
+              },
+              "short" : {
+                "type" : "string",
+                "enum" : [ "aboveKnee" ]
+              }
+            }
+          }
+        }
+      },
+      "preferredStyle" : {
+        "type" : "object",
+        "properties" : {
+          "brand" : {
+            "type" : "array"
+          },
+          "color" : {
+            "type" : "array"
+          }
         }
       }
     }
