@@ -201,9 +201,22 @@
       "post" : {
         "tags" : [ "user" ],
         "summary" : "update a user's preferred sizes",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "$ref" : "#/components/schemas/preferredSize"
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
             "description" : "update successful"
+          },
+          "401" : {
+            "description" : "unauthorized"
           }
         }
       }
@@ -215,6 +228,9 @@
         "responses" : {
           "200" : {
             "description" : "update successful"
+          },
+          "401" : {
+            "description" : "unauthorized"
           }
         }
       }
@@ -226,6 +242,9 @@
         "responses" : {
           "200" : {
             "description" : "update successful"
+          },
+          "401" : {
+            "description" : "unauthorized"
           }
         }
       }
@@ -237,31 +256,38 @@
         "type" : "object",
         "properties" : {
           "firstName" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "Ben"
           },
           "lastName" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "Tsou"
           },
           "ageGroup" : {
             "type" : "string",
-            "enum" : [ "<12", "13-17", ">80" ]
+            "enum" : [ "<10", "11-20", "21-30", "31-40", ">80" ],
+            "example" : "31-40"
           },
           "gender" : {
             "type" : "string",
-            "enum" : [ "male", "female" ]
+            "enum" : [ "male", "female" ],
+            "example" : "male"
           },
           "preferredGender" : {
             "type" : "string",
-            "enum" : [ "male", "female", "both" ]
+            "enum" : [ "male", "female", "both" ],
+            "example" : "male"
           },
           "height" : {
-            "type" : "integer"
+            "type" : "number",
+            "example" : 68
           },
           "heightUnit" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "in"
           },
           "weight" : {
-            "type" : "integer"
+            "type" : "number"
           },
           "weightUnit" : {
             "type" : "string"
