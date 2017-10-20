@@ -167,28 +167,29 @@
       "post" : {
         "tags" : [ "user" ],
         "summary" : "update a user's profile",
-        "responses" : {
-          "200" : {
-            "description" : "update successful"
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "profile" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/profile"
+                  },
+                  "hobby" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/hobby"
+                  },
+                  "socialMedia" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/socialMedia"
+                  }
+                }
+              }
+            }
           }
-        }
-      }
-    },
-    "/r1/user/{id}/socialMedia" : {
-      "post" : {
-        "tags" : [ "user" ],
-        "summary" : "update a user's social media",
-        "responses" : {
-          "200" : {
-            "description" : "update successful"
-          }
-        }
-      }
-    },
-    "/r1/user/{id}/hobby" : {
-      "post" : {
-        "tags" : [ "user" ],
-        "summary" : "update a user's hobbies",
+        },
         "responses" : {
           "200" : {
             "description" : "update successful"
@@ -273,8 +274,11 @@
             "type" : "string"
           },
           "lifestyle" : {
-            "type" : "string",
-            "enum" : [ "relaxed" ]
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "relaxed" ]
+            }
           },
           "occupation" : {
             "type" : "string"
@@ -380,26 +384,32 @@
             "type" : "object",
             "properties" : {
               "flauntArm" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntBack" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntCleavage" : {
                 "type" : "string",
-                "enum" : [ "sometimes" ]
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntLeg" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntMedsection" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntRear" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "flauntShoulder" : {
-                "type" : "boolean"
+                "type" : "string",
+                "enum" : [ true, false, "sometimes" ]
               },
               "jeansLength" : {
                 "type" : "string",
